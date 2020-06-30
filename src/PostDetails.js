@@ -3,7 +3,7 @@ import { useHistory, useParams, Redirect } from "react-router-dom";
 import PostForm from "./PostForm";
 import Comments from './Comments';
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import { getPostFromAPI, deleteCommentFromAPI, deletePostFromAPI} from "./actionCreators";
+import { getPostFromAPI, deleteCommentFromAPI, deletePostFromAPI } from "./actionCreators";
 import "./PostDetails.css";
 import changeVotes from "./changeVotes";
 
@@ -50,20 +50,22 @@ function PostDetails() {
             <button className="PostDetails-btn btn btn-dark" onClick={() => setEditClicked(true)}>Edit Post</button>
             <button className="PostDetails-btn delete-btn btn btn-secondary" onClick={handleDeleteClick}>Delete Post</button>
             <h1 className="PostDetails-title" >{post.title}</h1>
-            <h3><b>Description of post: </b><i>{post.description}</i></h3>
-            <p>{post.body}</p>
+            <h3 className="PostDetails-description"><b>Description of post: </b><i>{post.description}</i></h3>
+            <p className="PostDetails-body">{post.body}</p>
             <div>
-              <p ><b>Votes:</b> {post.votes}</p>
-              <button className="PostDetails-btn btn btn-success" onClick={() => changeVotes( id, "up", dispatch)}>Up Vote</button>
-              <button className="PostDetails-btn btn btn-danger" onClick={() => changeVotes( id, "down", dispatch)}>Down Vote</button>
+              <p className="PostDetails-body"><b>Votes:</b> {post.votes}</p>
+              <button className="PostDetails-btn btn btn-success" onClick={() => changeVotes(id, "up", dispatch)}>Up Vote</button>
+              <button className="PostDetails-btn btn btn-danger" onClick={() => changeVotes(id, "down", dispatch)}>Down Vote</button>
             </div>
           </div>
-          <p><b>Comments:</b> </p>
-          {post.comments ?
-            <Comments comments={post.comments} postId={id} handleDelete={handleCommentDelete} />
-            :
-            ""
-          }
+          <div className="PostDetails-comments">
+            <p><b>Comments:</b> </p>
+            {post.comments ?
+              <Comments comments={post.comments} postId={id} handleDelete={handleCommentDelete} />
+              :
+              ""
+            }
+          </div>
         </div>
       )
 
@@ -74,12 +76,12 @@ function PostDetails() {
   return (
     <div>
       {
-      error ?
-      <Redirect to="/" />
-      :loading
-        ?
-        <p>Loading...</p>
-        : showPostOrEdit()
+        error ?
+          <Redirect to="/" />
+          : loading
+            ?
+            <p>Loading...</p>
+            : showPostOrEdit()
       }
     </div>
 
