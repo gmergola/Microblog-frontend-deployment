@@ -1,0 +1,14 @@
+.PostForm-form {
+  margin: 4rem;
+}
+
+.PostForm-header {
+  font-size: 50px;
+  color: black;
+  opacity: 0.7;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 6rem;
+  border-bottom: 5px solid rgb(241, 240, 240);
+}

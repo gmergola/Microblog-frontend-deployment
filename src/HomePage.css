@@ -1,0 +1,41 @@
+/* .Home-container {
+  height: 100vh;
+} */
+
+.Home-header {
+  margin-left: 3rem;
+  margin-top: 2rem;
+  color: rgb(105, 105, 105);
+  font-size: 30px;
+}
+
+.title {
+  margin-top: 0.5rem;
+  margin-left: 6rem;
+  margin-bottom: 1rem;
+  font-size: 50px;
+  color: black;
+  opacity: 0.7;
+}
+
+.Home-info {
+  opacity: 0.6;
+  margin-right: 2rem;
+  margin-left: 9rem;
+  color: black;
+  font-size: 17px;
+  border-bottom: 5px solid rgb(241, 240, 240);
+}
+
+@media only screen and (max-width: 1000px) {
+  .Home-header {
+    font-size: 25px;
+  }
+  .title {
+    font-size: 35px;
+  }
+
+  .Home-info {
+    font-size: 15px;
+  }
+}

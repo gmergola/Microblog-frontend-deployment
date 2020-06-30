@@ -1,0 +1,24 @@
+.navbar {
+  background-color: rgb(241, 240, 240);
+  opacity: 0.8;
+}
+.navbar-title {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  color: rgb(105, 105, 105);
+  font-size: 20px;
+}
+
+.navbar-title:hover {
+  opacity: 0.5;
+  text-decoration: none;
+  color: rgb(105, 105, 105);
+}
+
+.dropdown-item {
+  color: pink;
+}
+
+.dropdown-toggle:hover{
+  opacity: 0.5;
+}
