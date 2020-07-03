@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import PostCard from './PostCard.js';
 import {useDispatch, useSelector, shallowEqual} from "react-redux";
 import { getPostsFromAPI, clearErr } from "./actionCreators";
@@ -8,8 +8,8 @@ import './PostList.css';
 
 
 /*PostList: Makes call to db to get brief version of posts and lists them */
-function PostList(){
-  const postIdsToPostData = useSelector(st => st.posts, shallowEqual);
+function PostList (){
+  const [postsState, loadingState] = useSelector(st => [st.posts, st.loading], shallowEqual);
   const dispatch = useDispatch();
 
   // Pull in brief details on all posts on component mount
@@ -28,7 +28,7 @@ function PostList(){
   //Makes an array of the postIdsToPostData object, sorted by
   // votes in the postdata
   function sortPostsByVotes() {
-    let posts = Object.entries(postIdsToPostData);
+    let posts = Object.entries(postsState);
 
     return posts.sort((post1, post2) => {
       return post2[1].votes - post1[1].votes
@@ -36,6 +36,7 @@ function PostList(){
   }
 
   return(
+    loadingState ? <p className="loading-posts">Loading Posts...</p> :
     <div className="PostList-container">
       {sortPostsByVotes().map(([postId, postData]) => (
       <PostCard

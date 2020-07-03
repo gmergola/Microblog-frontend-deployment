@@ -1,16 +1,16 @@
 import axios from 'axios';
-import { structurePostsData, 
-          structurePostData, 
+import { structurePostsData,
+          structurePostData,
           structureUpdatedPostData } from './dataRestructurers';
-import { 
+import {
   IS_LOADING,
-  GET_POSTS, 
+  GET_POSTS,
   GET_POST,
-  CREATE_POST, 
-  DELETE_POST, 
+  CREATE_POST,
+  DELETE_POST,
   UPDATE_POST,
-  CREATE_COMMENT, 
-  DELETE_COMMENT, 
+  CREATE_COMMENT,
+  DELETE_COMMENT,
   UPDATE_VOTES,
   SHOW_ERR,
   CLEAR_ERR
@@ -29,7 +29,6 @@ export function startLoad() {
   return { type: IS_LOADING };
 }
 
-// TODO postId here should be superfluous. 
 export function gotPosts(postsData, postId) {
   return { type: GET_POSTS, postsData, postId};
 }
