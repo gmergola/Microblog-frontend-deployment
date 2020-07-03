@@ -36,7 +36,7 @@ function PostList (){
   }
 
   return(
-    loadingState ? <p className="loading-posts">Loading Posts...</p> :
+    loadingState ? <p className="loading-posts">Loading Posts... Thanks for your patience</p> :
     <div className="PostList-container">
       {sortPostsByVotes().map(([postId, postData]) => (
       <PostCard
