@@ -36,7 +36,7 @@ function PostForm({ id, postDetails = INITIAL_STATE, setEditClicked }) {
       setEditClicked(false)
     } else {
       dispatch(createPostWithAPI(formData))
-      history.push("/");
+      history.push("/blog");
     }
   }
 
@@ -47,7 +47,7 @@ function PostForm({ id, postDetails = INITIAL_STATE, setEditClicked }) {
     if (id) {
       setEditClicked(false)
     } else {
-      history.push('/');
+      history.push("/");
     }
   }
 

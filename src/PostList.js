@@ -40,6 +40,7 @@ function PostList (){
     <div className="PostList-container">
       {sortPostsByVotes().map(([postId, postData]) => (
       <PostCard
+      className="PostList-card"
       key={postId}
       postId={postId}
       postData={postData}

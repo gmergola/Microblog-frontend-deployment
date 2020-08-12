@@ -27,7 +27,7 @@ function PostDetails() {
   // Delete post and redirect to home page
   function handleDeleteClick() {
     dispatch(deletePostFromAPI(id));
-    history.push("/");
+    history.push("/blog");
   }
 
 
