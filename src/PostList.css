@@ -1,8 +1,10 @@
 .loading-posts {
-  margin-left: 18rem;
+  margin-left: 20rem;
   font-size: 30px;
   opacity: 0.8;
   margin-top: 40px;
+  color: grey;
+  opacity: 0.6;
 }
 
 

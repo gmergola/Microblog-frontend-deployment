@@ -6,6 +6,7 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getPostFromAPI, deleteCommentFromAPI, deletePostFromAPI } from "./actionCreators";
 import "./PostDetails.css";
 import changeVotes from "./changeVotes";
+import LoadingSpinner from "./LoadingSpinner";
 
 /** PostDetails: Shows details of individual post. Get post id from params */
 function PostDetails() {
@@ -80,7 +81,7 @@ function PostDetails() {
           <Redirect to="/" />
           : loading
             ?
-            <p>Loading...</p>
+            <LoadingSpinner />
             : showPostOrEdit()
       }
     </div>

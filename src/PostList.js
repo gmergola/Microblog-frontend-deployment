@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import PostCard from './PostCard.js';
-import {useDispatch, useSelector, shallowEqual} from "react-redux";
+import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getPostsFromAPI, clearErr } from "./actionCreators";
 import changeVotes from "./changeVotes";
 import './PostList.css';
+import LoadingSpinner from './LoadingSpinner.js';
 
 
 
 /*PostList: Makes call to db to get brief version of posts and lists them */
-function PostList (){
+function PostList() {
   const [postsState, loadingState] = useSelector(st => [st.posts, st.loading], shallowEqual);
   const dispatch = useDispatch();
 
@@ -35,17 +36,21 @@ function PostList (){
     })
   }
 
-  return(
-    loadingState ? <p className="loading-posts">Loading Posts... Thanks for your patience</p> :
-    <div className="PostList-container">
-      {sortPostsByVotes().map(([postId, postData]) => (
-      <PostCard
-      className="PostList-card"
-      key={postId}
-      postId={postId}
-      postData={postData}
-      handleVotes={handleVotes}/>))}
-    </div>
+  return (
+    loadingState ?
+      <div>
+        <p className="loading-posts">Loading Posts... Thanks for your patience</p>
+        <LoadingSpinner />
+      </div> :
+      <div className="PostList-container">
+        {sortPostsByVotes().map(([postId, postData]) => (
+          <PostCard
+            className="PostList-card"
+            key={postId}
+            postId={postId}
+            postData={postData}
+            handleVotes={handleVotes} />))}
+      </div>
   )
 }
 
